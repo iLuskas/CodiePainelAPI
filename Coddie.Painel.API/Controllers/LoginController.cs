@@ -18,7 +18,7 @@ namespace Coddie.Painel.API.Controllers
         [HttpPost, AllowAnonymous]
         public async Task<ActionResult> PostAsync([FromForm] LoginDTO loginDTO)
         {
-            var result = await _userService.GetTokenByLoginAndPasswordAsync(loginDTO);
+            var result = await _userService.GetAuthAsync(loginDTO);
 
             if (result.IsSuccess)
                 return Ok(result.Data);
